@@ -1,10 +1,19 @@
-import express  from "express";
+import express from "express";
+import initRoutes from "../src/routes/init.routes.js";
+import initMiddlewares from "../src/middlewares/init.middleware.js";
 
+// Création de l'application Express
+const app = express();
 
-const app = express()
-const server = app.listen(); // Port not specified
+// Initialisation des middlewares (gestionnaires intermédiaires)
+initMiddlewares(app);
 
-console.log(`Server is running on port ${server.address().port}`);
+// Initialisation des routes de l'application
+initRoutes(app);
 
-
-export default app
+// Écoute du serveur sur le port spécifié
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+export default app;
