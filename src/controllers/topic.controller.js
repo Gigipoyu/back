@@ -7,7 +7,7 @@ const createTopic = async (req,res) => {
       image
     } = req.body
 
-const result = await TopicDB.createTopic(
+const response = await TopicDB.createTopic(
     title,
     description,
     image)
@@ -25,7 +25,7 @@ const result = await TopicDB.createTopic(
 
 // Fonction pour lire les informations de tous les utilisateurs
 const readTopic = async (req, res) => {
-    const response = await TopicDB.read();
+    const response = await TopicDB.readTopic();
     const result = response.result;
   
     return res.status(200).json({ message: "Request OK", topics: result });
@@ -66,7 +66,7 @@ const readTopic = async (req, res) => {
     if (responseError) {
       return res.status(500).json({ message: responseError });
     }
-    return res.status(200).json({ message: "topic crée"});
+    return res.status(200).json({ message: "topic modifié"});
   }
 
   export const TopicController = {

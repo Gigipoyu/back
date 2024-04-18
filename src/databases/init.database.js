@@ -1,4 +1,7 @@
 import mysql from "mysql";
+import dotenv from "dotenv";
+dotenv.config();
+
 
 // Création d'un gestionnaire (ou pool) de connexions à la base de données MySQL
 const pool = mysql.createPool({
@@ -8,6 +11,8 @@ const pool = mysql.createPool({
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
 });
+
+console.log(process.env.DB_HOST);
 
 // Fonction pour exécuter une requête SQL
 const query = (sql, values = []) => {

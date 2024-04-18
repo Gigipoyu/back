@@ -12,7 +12,7 @@ const createComment = async (req,res) => {
         signaled
     } = req.body
 
-const result = await CommentDB.createComment(
+const response = await CommentDB.createComment(
   content,
   publication,
   id_user,
@@ -35,7 +35,7 @@ const result = await CommentDB.createComment(
 
 // Fonction pour lire les informations de tous les utilisateurs
 const readComment = async (req, res) => {
-    const response = await CommentDB.read();
+    const response = await CommentDB.readComment();
     const result = response.result;
   
     return res.status(200).json({ message: "Request OK", comments: result });

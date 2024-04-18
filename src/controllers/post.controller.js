@@ -14,7 +14,7 @@ const createPost = async (req,res) => {
         image,
     } = req.body
 
-const result = await PostDB.createPost(
+const response = await PostDB.createPost(
     title,
     content,
     creation,

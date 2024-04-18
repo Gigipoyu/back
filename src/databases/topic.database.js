@@ -5,7 +5,7 @@ const createTopic = async(
       description,
       image) => {
    const sql = `
-   INSERT INTO post (
+   INSERT INTO topic (
    title,
    description,
    image)
@@ -72,7 +72,7 @@ const updateTopic = async (
     image) => {
     const sql = `
 
-        UPDATE post
+        UPDATE topic
         SET title = ?, description = ?,image = ?
         WHERE id = ?
     `;
