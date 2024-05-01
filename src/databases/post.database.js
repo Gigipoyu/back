@@ -69,22 +69,22 @@ const readOnePost = async (id) => {
 
 const readPost = async () => {
     const sql = `
-        SELECT *
-        FROM post
-        ORDER BY id DESC
-    `;
-
+          SELECT *
+          FROM post
+          ORDER BY id DESC
+      `;
+  
     let error = null;
     let result = null;
-
+  
     try {
-        result = await query(sql,[id_post] );
+      result = await query(sql);
     } catch (e) {
-        error = e.message;
+      error = e.message;
     } finally {
-        return { error, result };
+      return { error, result };
     }
-};
+  };
 
 const readPostByTopic = async (id) => {
     const sql = `

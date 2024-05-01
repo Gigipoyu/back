@@ -60,7 +60,7 @@ const readOneComment = async (id) => {
     }
 };
 
-const readComment = async (id_post) => {
+const readComment = async (post_id) => {
     const sql = `
         SELECT *
         FROM comment
@@ -72,7 +72,7 @@ const readComment = async (id_post) => {
     let result = null;
 
     try {
-        result = await query(sql,[id_post] );
+        result = await query(sql,[post_id] );
     } catch (e) {
         error = e.message;
     } finally {

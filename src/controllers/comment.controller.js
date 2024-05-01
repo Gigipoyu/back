@@ -35,7 +35,8 @@ const response = await CommentDB.createComment(
 
 // Fonction pour lire les informations de tous les utilisateurs
 const readComment = async (req, res) => {
-    const response = await CommentDB.readComment();
+
+    const response = await CommentDB.readComment(req.query.post_id);
     const result = response.result;
   
     return res.status(200).json({ message: "Request OK", comments: result });
